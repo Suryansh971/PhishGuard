@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - PhishGuard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            PhishGuard
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Analyze</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/history">History</a>
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <h1>PhishGuard Dashboard</h1>
+
+        <p class="subtitle">
+            Security analysis overview
+        </p>
+
+
+        <!-- STATISTICS -->
+        <div class="dashboard-grid">
+
+            <div class="stat-card">
+                <h3>Total Scans</h3>
+                <strong>{{ stats.total_scans }}</strong>
+            </div>
+
+            <div class="stat-card">
+                <h3>High Risk</h3>
+                <strong>{{ stats.high_risk }}</strong>
+            </div>
+
+            <div class="stat-card">
+                <h3>Medium Risk</h3>
+                <strong>{{ stats.medium_risk }}</strong>
+            </div>
+
+            <div class="stat-card">
+                <h3>Low Risk</h3>
+                <strong>{{ stats.low_risk }}</strong>
+            </div>
+
+            <div class="stat-card">
+                <h3>Malicious Detections</h3>
+                <strong>{{ stats.malicious }}</strong>
+            </div>
+
+        </div>
+
+
+        <!-- ACTION BUTTONS -->
+        <div class="dashboard-actions">
+
+            <a href="/" class="back-button">
+                Analyze URL
+            </a>
+
+            <a href="/history" class="back-button">
+                View History
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

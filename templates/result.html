@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analysis Result - PhishGuard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            PhishGuard
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Analyze</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/history">History</a>
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <h1>PhishGuard</h1>
+
+        <p class="subtitle">
+            Phishing Link Risk Analysis
+        </p>
+
+
+        <div class="result-card">
+
+            <!-- URL -->
+            <p class="url">
+                <strong>URL:</strong> {{ url }}
+            </p>
+
+
+            <!-- FINAL RISK RESULT -->
+            <div class="final-result
+                {% if final_risk == 'High Risk' %}
+                    high-risk
+                {% elif final_risk == 'Medium Risk' %}
+                    medium-risk
+                {% else %}
+                    low-risk
+                {% endif %}
+            ">
+
+                <p>Final Risk Score</p>
+
+                <div class="final-score">
+                    {{ final_score }}/100
+                </div>
+
+                <h2>{{ final_risk }}</h2>
+
+            </div>
+
+
+            <!-- DETECTED RED FLAGS -->
+            <h3>Detected Red Flags</h3>
+
+            {% if result.red_flags %}
+
+                <ul>
+                    {% for flag in result.red_flags %}
+                        <li>{{ flag }}</li>
+                    {% endfor %}
+                </ul>
+
+            {% else %}
+
+                <p>No obvious red flags detected.</p>
+
+            {% endif %}
+
+
+            <!-- VIRUSTOTAL ANALYSIS -->
+            <div class="vt-section">
+
+                <h3>VirusTotal Analysis</h3>
+
+                <div class="vt-stats">
+
+                    <div>
+                        <strong>{{ vt_stats.malicious }}</strong>
+                        <span>Malicious</span>
+                    </div>
+
+                    <div>
+                        <strong>{{ vt_stats.suspicious }}</strong>
+                        <span>Suspicious</span>
+                    </div>
+
+                    <div>
+                        <strong>{{ vt_stats.harmless }}</strong>
+                        <span>Harmless</span>
+                    </div>
+
+                    <div>
+                        <strong>{{ vt_stats.undetected }}</strong>
+                        <span>Undetected</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTION -->
+            <a href="/" class="back-button">
+                Analyze Another URL
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PhishGuard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            PhishGuard
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Analyze</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/history">History</a>
+        </div>
+
+    </nav>
+    
+    <div class="container">
+
+        <h1>PhishGuard</h1>
+
+        <p class="subtitle">
+            Phishing Link Risk Analyzer
+        </p>
+
+        <form method="POST" action="/analyze">
+
+            <input
+                type="text"
+                name="url"
+                placeholder="Enter a URL to analyze"
+                required
+            >
+
+            <button type="submit">
+                Analyze URL
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

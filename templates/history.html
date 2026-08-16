@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scan History - PhishGuard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            PhishGuard
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Analyze</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/history">History</a>
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <h1>Scan History</h1>
+
+        <p class="subtitle">
+            Previously analyzed URLs
+        </p>
+
+
+        <div class="result-card">
+
+            {% if scans %}
+
+                {% for scan in scans %}
+
+                    <div class="history-item">
+
+                        <div>
+                            <strong>{{ scan["url"] }}</strong>
+
+                            <p>
+                                Scanned at: {{ scan["scanned_at"] }}
+                            </p>
+                        </div>
+
+                        <div>
+                            <strong>
+                                {{ scan["risk_score"] }}/100
+                            </strong>
+
+                            <p>
+                                {{ scan["risk_level"] }}
+                            </p>
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>No scans yet.</p>
+
+            {% endif %}
+
+
+            <a href="/" class="back-button">
+                Analyze New URL
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
