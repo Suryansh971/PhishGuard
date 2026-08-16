@@ -55,30 +55,51 @@ Database
 
 PhishGuard/
 │
+
 ├── app.py
+
 ├── analyzer.py
+
 ├── threat_api.py
+
 ├── database.py
+
 ├── test_api.py
+
 ├── requirements.txt
+
 ├── .gitignore
+
 ├── README.md
+
 │
+
 ├── templates/
+
 │   ├── index.html
+
 │   ├── result.html
+
 │   ├── history.html
+
 │   └── dashboard.html
+
 │
+
 └── static/
+
     └── style.css
 
 ## Installation
 
 git clone https://github.com/Suryansh971/PhishGuard.git
+
 cd PhishGuard
+
 python -m venv venv
+
 venv\Scripts\activate
+
 pip install -r requirements.txt
 
 ## API Setup
