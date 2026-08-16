@@ -53,8 +53,8 @@ Database
 
 ## Project Structure
 
+```text
 PhishGuard/
-│
 ├── app.py
 ├── analyzer.py
 ├── threat_api.py
@@ -63,15 +63,14 @@ PhishGuard/
 ├── requirements.txt
 ├── .gitignore
 ├── README.md
-│
 ├── templates/
 │   ├── index.html
 │   ├── result.html
 │   ├── history.html
 │   └── dashboard.html
-│
 └── static/
     └── style.css
+```
 
 ## Installation
 
