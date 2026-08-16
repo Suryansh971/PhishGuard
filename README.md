@@ -74,49 +74,47 @@ PhishGuard/
 
 ## Installation
 
+```text
 git clone https://github.com/Suryansh971/PhishGuard.git
-
 cd PhishGuard
-
 python -m venv venv
-
 venv\Scripts\activate
-
 pip install -r requirements.txt
+```
 
 ## API Setup
 
 PhishGuard uses the VirusTotal API for threat intelligence.
 
 Create a .env file in the project root:
-
+```text
 THREAT_API_KEY=your_api_key_here
-
+```
 Do not share or upload your API key.
 
 ## Run the Project
-
+```text
 python app.py
-
+```
 Open the application in your browser:
-
+```text
 http://127.0.0.1:5000
-
+```
 ## Main Pages
 
-URL Analyzer
+### URL Analyzer
 
 Enter a URL and analyze its security risk.
 
-Scan History
+### Scan History
 
 View previously analyzed URLs along with their risk scores and scan times.
 
-Dashboard
+### Dashboard
 
 View overall scan statistics including total scans, high-risk scans, medium-risk scans, low-risk scans and malicious detections.
 
-Risk Analysis
+### Risk Analysis
 
 PhishGuard combines locally detected URL indicators with VirusTotal analysis to calculate a custom risk score.
 
